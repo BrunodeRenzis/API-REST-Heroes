@@ -33,5 +33,24 @@ public class HeroeService {
 	
 	public void add(Heroe hero) {
 		heroeRepository.add(hero);
+	}
+
+	public Heroe findById(int heroId) {
+		
+		Optional<Heroe> retorno = heroeRepository.findById(heroId);
+		if(retorno.isPresent()) {
+			return retorno.get();
+		}
+		return null;
+	}
+
+	public void deleteById(int heroId) {
+		
+		Heroe heroe = findById(heroId);
+		
+		if(heroe!=null) {
+			heroeRepository.delete(heroe);
+		}
+		
 	}	
 }

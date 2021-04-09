@@ -17,7 +17,15 @@ public class HeroeRepository {
 		heroes.add(hero);
 	}
 	
+	public Optional <Heroe> findById(int id) {
+		return heroes.stream()
+			   .filter(heroe-> heroe.getIdx() == id)
+			   .findFirst();
+	}
 	
+	public void delete(Heroe heroe) {
+		heroes.remove(heroe);
+	}
 	
 	public List<Heroe> getAll(){
 		return this.heroes;
