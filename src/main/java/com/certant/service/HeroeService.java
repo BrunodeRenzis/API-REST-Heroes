@@ -19,13 +19,16 @@ public class HeroeService {
 		return heroeRepository.getAll();
 	}
 	
-	public Heroe getByName(String name) throws Exception {
-		Optional <Heroe> hero = heroeRepository.getByName(name);
-		if(hero.isPresent()){
-			return hero.get();			
-		} else {
-			throw new Exception ("No se encontró el heroe");
-		}
+	public List <Heroe> getByName(String name) {
+		return heroeRepository.getByName(name);
+	}
+	
+	public List<Heroe> getByNameOrDescription(String filter){
+		return heroeRepository.getByNameOrDescription(filter);
+	}
+	
+	public List<Heroe> getByNameOrDescriptionOrDesignOrAparition(String filtro){
+		return heroeRepository.getByNameOrDescriptionOrDesignOrAparition(filtro);
 	}
 	
 	public void add(Heroe hero) {
